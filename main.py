@@ -6,6 +6,8 @@ from constants import *
 
 def main():
     pygame.init()
+    clock_variable = pygame.time.Clock()
+    dt = 0
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
@@ -14,6 +16,8 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        time_passed = clock_variable.tick(60)
+        dt = time_passed / 1000
         screen.fill((0,0,0))
         pygame.display.flip()
 
